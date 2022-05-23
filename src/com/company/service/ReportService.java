@@ -20,15 +20,16 @@ public class ReportService {
 
 
     // надо получить отсортированный массив счетчиков
-//    public Arrays[] arr(StoreDto[] storeDtos) {
-//        BuyingDto buyingDto = new BuyingDto();
-//        Arrays[] ar = new Arrays[storeDtos.length];
-//        for (int i = 0; i < storeDtos.length; i++) {
-//            ar[i] = buyingDto.getCount();
-//        }
-//        Arrays.sort(ar);
-//        return ar;
-//    }
+    public Arrays[] arr(StoreDto[] storeDtos) {
+        BuyingDto buyingDto = new BuyingDto();
+        Arrays[] ar = new Arrays[storeDtos.length];
+        System.out.println(buyingDto.getCount());
+        for (int i = 0; i < storeDtos.length; i++) {
+          //  ar[i] = buyingDto.getCount();
+        }
+        Arrays.sort(ar);
+        return ar;
+    }
 
 
     // получаем итоговую сумму продаж

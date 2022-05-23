@@ -3,6 +3,8 @@ package com.company.view;
 import com.company.dto.BuyingDto;
 import com.company.dto.ReportDto;
 
+import java.util.Arrays;
+
 public class ReportView {
 
     public static final String DESCRIPTION = "REPORT DATA:  ";
@@ -33,17 +35,26 @@ public class ReportView {
 
         // вывод значений столбцов
         for (BuyingDto buyingDto : report.getData()) {
-            String cost = Math.round(buyingDto.getSum()) + " uah";
 
             // длинные названия товара делим по признаку и переносим на новый рядок
-            int strName = Integer.parseInt(String.valueOf(buyingDto.getName().length()));
+            int strName = buyingDto.getName().length();
             if (strName < length) {
                 System.out.print(buyingDto.getName());
             } else {
                 String[] str;
                 str = buyingDto.getName().split(" ");
-                for (int i = 0; i < str.length; i++) {
+                int i;
+                for (i = 0; i < str.length - 1; i++) {
                     System.out.println(str[i]);
+                }
+                System.out.print(str[i]);
+
+                // при переносе названия на новий рядок
+                // вивод остальних столбцов
+                int strI = str[i].length();
+                int strLength = length - strI;
+                for (int j = 1; j <= strLength; j++) {
+                    System.out.print(" ");
                 }
             }
 
@@ -64,7 +75,7 @@ public class ReportView {
             for (int i = 1; i <= indentSum; i++) {
                 System.out.print(" ");
             }
-            System.out.println(buyingDto.getSum() + " uah");
+            System.out.println(Math.round( buyingDto.getSum()) + " uah");
             System.out.println("-".repeat(dash));
         }
         System.out.println("=".repeat(dash));

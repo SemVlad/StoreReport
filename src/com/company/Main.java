@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.controller.ReportController;
+import com.company.dto.BuyingDto;
 import com.company.model.OfflineStore;
 import com.company.model.OnlineStore;
 import com.company.model.Store;
@@ -14,6 +15,7 @@ public class Main {
         ReportController controller = new ReportController();
         controller.execute(generateMockStores());
         System.out.println();
+
     }
 
     private static Store[] generateMockStores() {
