@@ -49,8 +49,8 @@ public class ReportView {
                 }
                 System.out.print(str[i]);
 
-                // при переносе названия на новий рядок
-                // вивод остальних столбцов
+                // при переносе наименования товара на новий рядок
+                // вывод остальных значений
                 int strI = str[i].length();
                 int strLength = length - strI;
                 for (int j = 1; j <= strLength; j++) {
