@@ -3,8 +3,6 @@ package com.company.view;
 import com.company.dto.BuyingDto;
 import com.company.dto.ReportDto;
 
-import java.util.Arrays;
-
 public class ReportView {
 
     public static final String DESCRIPTION = "REPORT DATA:  ";

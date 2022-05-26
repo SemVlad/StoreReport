@@ -2,11 +2,11 @@ package com.company.service;
 
 import com.company.dto.BuyingDto;
 import com.company.dto.ReportDto;
+import com.company.dto.ReportMaxDto;
 import com.company.dto.StoreDto;
 import com.company.model.Store;
 import com.company.model.product.Buying;
 
-import java.util.Arrays;
 
 public class ReportService {
 
@@ -16,19 +16,6 @@ public class ReportService {
 
     public ReportService(Store[] stores) {
         this.stores = stores;
-    }
-
-
-    // надо получить отсортированный массив счетчиков
-    public Arrays[] arr(StoreDto[] storeDtos) {
-        BuyingDto buyingDto = new BuyingDto();
-        Arrays[] ar = new Arrays[storeDtos.length];
-        System.out.println(buyingDto.getCount());
-        for (int i = 0; i < storeDtos.length; i++) {
-          //  ar[i] = buyingDto.getCount();
-        }
-        Arrays.sort(ar);
-        return ar;
     }
 
 
@@ -44,7 +31,14 @@ public class ReportService {
         return new ReportDto(SUMMARY_REPORT, buyingDtos, totalSum);
     }
 
-    // обьединение продаж , суммируются счетчики
+    public ReportMaxDto buildMax() {
+        StoreDto[] storeDtos = mapStores();
+        BuyingDto[] buyingDtos = mergeBuyings(storeDtos);
+        bubbleSort(buyingDtos);
+
+        return new ReportMaxDto(SUMMARY_REPORT, buyingDtos);
+    }
+
     private BuyingDto[] mergeBuyings(StoreDto[] storeDtos) {
 
         int count = getCount(storeDtos);
@@ -58,7 +52,24 @@ public class ReportService {
         return totalArr;
     }
 
-
+    //сортируем продажи
+    public void bubbleSort(BuyingDto[] buyingDtos) {
+        boolean swapped = true;
+        int j = 0;
+        BuyingDto tmp;
+        while (swapped) {
+            swapped = false;
+            j++;
+            for (int i = 0; i < buyingDtos.length - j; i++) {
+                if (buyingDtos[i].getCount() > buyingDtos[i + 1].getCount()) {
+                    tmp = buyingDtos[i];
+                    buyingDtos[i] = buyingDtos[i + 1];
+                    buyingDtos[i + 1] = tmp;
+                    swapped = true;
+                }
+            }
+        }
+    }
     // подсчет количества проданного
     private int getCount(StoreDto[] storeDtos) {
         int count = 0;

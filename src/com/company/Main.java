@@ -14,7 +14,10 @@ public class Main {
 
         ReportController controller = new ReportController();
         controller.execute(generateMockStores());
+
+        controller.exec(generateMockStores());
         System.out.println();
+
 
     }
 
@@ -29,7 +32,7 @@ public class Main {
         Buying b3 = new Buying(eggs, 350);
         Buying b4 = new Buying(baton, 183);
         Buying[] atbBuyings = {b1, b2, b3, b4};
-        OfflineStore atb = new OfflineStore("atb",atbBuyings, "Kyiv, Mazepy 45");
+        OfflineStore atb = new OfflineStore("atb", atbBuyings, "Kyiv, Mazepy 45");
 
 
         Product cola = new Product("Coca cola", 20);
@@ -40,7 +43,7 @@ public class Main {
         Buying bo2 = new Buying(redLabel, 60);
         Buying bo3 = new Buying(lays, 133);
         Buying[] atbBuyingsOnline = {bo1, bo2, bo3};
-        OnlineStore atbOnline = new OnlineStore("atb",atbBuyingsOnline, "https://atb.ua/shop");
+        OnlineStore atbOnline = new OnlineStore("atb", atbBuyingsOnline, "https://atb.ua/shop");
 
         Store[] stores = {atb, atbOnline};
         return stores;
