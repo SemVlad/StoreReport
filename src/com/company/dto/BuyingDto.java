@@ -6,7 +6,6 @@ public class BuyingDto {
     private int count;
     private double sum;
 
-
     public BuyingDto(String name, int count, double sum) {
         this.name = name;
         this.count = count;
@@ -24,5 +23,4 @@ public class BuyingDto {
     public double getSum() {
         return sum;
     }
-
 }

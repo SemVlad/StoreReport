@@ -73,11 +73,10 @@ public class ReportView {
             for (int i = 1; i <= indentSum; i++) {
                 System.out.print(" ");
             }
-            System.out.println(Math.round( buyingDto.getSum()) + " uah");
+            System.out.println(Math.round(buyingDto.getSum()) + " uah");
             System.out.println("-".repeat(dash));
         }
         System.out.println("=".repeat(dash));
         System.out.println("Total sum: " + report.getTotalSum() + " uah");
-
     }
 }

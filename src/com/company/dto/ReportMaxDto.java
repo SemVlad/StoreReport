@@ -21,5 +21,4 @@ public class ReportMaxDto {
     public BuyingDto[] getData() {
         return data;
     }
-
 }

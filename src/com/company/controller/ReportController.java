@@ -17,11 +17,9 @@ public class ReportController {
     }
 
     public void execute(Store[] stores) {
-
         ReportService reportService = new ReportService(stores);
         ReportDto report = reportService.build();
         ReportView view = new ReportView();
         view.printDetails(report);
-
     }
 }
