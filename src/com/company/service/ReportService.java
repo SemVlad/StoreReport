@@ -31,12 +31,10 @@ public class ReportService {
         StoreDto[] storeDtos = mapStores();
         BuyingDto[] buyingDtos = mergeBuyings(storeDtos);
         bubbleSort(buyingDtos);
-
         return new ReportMaxDto(SUMMARY_REPORT, buyingDtos);
     }
 
     private BuyingDto[] mergeBuyings(StoreDto[] storeDtos) {
-
         int count = getCount(storeDtos);
         BuyingDto[] totalArr = new BuyingDto[count];
         int i = 0;
