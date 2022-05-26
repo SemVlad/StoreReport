@@ -1,9 +1,9 @@
 package com.company.dto;
 
-public class StoreDto {             //  в магазинах инфа о продажах
+public class StoreDto {
 
-    private String name;          //    название проданного товара
-    private BuyingDto[] sells;    // цифры проданного товара
+    private String name;
+    private BuyingDto[] sells;
 
     public StoreDto(String name, BuyingDto[] sells) {
         this.name = name;

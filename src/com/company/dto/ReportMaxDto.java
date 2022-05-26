@@ -2,17 +2,12 @@ package com.company.dto;
 
 public class ReportMaxDto {
 
-    private String name; // название товара
-    private BuyingDto[] data; // информация о товаре
-
+    private String name;
+    private BuyingDto[] data;
 
     public ReportMaxDto(String name, BuyingDto[] data) {
         this.name = name;
         this.data = data;
-    }
-
-    public ReportMaxDto() {  // конструктор по умолчанию
-
     }
 
     public String getName() {
@@ -26,10 +21,5 @@ public class ReportMaxDto {
     public BuyingDto[] getData() {
         return data;
     }
-
-    public void setData(BuyingDto[] data) {
-        this.data = data;
-    }
-
 
 }

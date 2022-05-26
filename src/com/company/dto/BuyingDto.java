@@ -2,9 +2,9 @@ package com.company.dto;
 
 public class BuyingDto {
 
-    private String name;   // название товара
-    private int count;      // количество товара
-    private double sum;        // сумма продажи
+    private String name;
+    private int count;
+    private double sum;
 
 
     public BuyingDto(String name, int count, double sum) {

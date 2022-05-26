@@ -18,7 +18,6 @@ public class Main {
         controller.exec(generateMockStores());
         System.out.println();
 
-
     }
 
     private static Store[] generateMockStores() {
@@ -33,7 +32,6 @@ public class Main {
         Buying b4 = new Buying(baton, 183);
         Buying[] atbBuyings = {b1, b2, b3, b4};
         OfflineStore atb = new OfflineStore("atb", atbBuyings, "Kyiv, Mazepy 45");
-
 
         Product cola = new Product("Coca cola", 20);
         Product redLabel = new Product("Red Label", 380);

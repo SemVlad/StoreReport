@@ -7,7 +7,6 @@ import com.company.dto.StoreDto;
 import com.company.model.Store;
 import com.company.model.product.Buying;
 
-
 public class ReportService {
 
     public static final String SUMMARY_REPORT = "Summary report";
@@ -18,8 +17,6 @@ public class ReportService {
         this.stores = stores;
     }
 
-
-    // получаем итоговую сумму продаж
     public ReportDto build() {
         StoreDto[] storeDtos = mapStores();
         BuyingDto[] buyingDtos = mergeBuyings(storeDtos);
@@ -27,7 +24,6 @@ public class ReportService {
         for (BuyingDto buyingDto : buyingDtos) {
             totalSum += buyingDto.getSum();
         }
-        // вывод
         return new ReportDto(SUMMARY_REPORT, buyingDtos, totalSum);
     }
 
@@ -61,7 +57,7 @@ public class ReportService {
             swapped = false;
             j++;
             for (int i = 0; i < buyingDtos.length - j; i++) {
-                if (buyingDtos[i].getCount() > buyingDtos[i + 1].getCount()) {
+                if (buyingDtos[i].getCount() < buyingDtos[i + 1].getCount()) {
                     tmp = buyingDtos[i];
                     buyingDtos[i] = buyingDtos[i + 1];
                     buyingDtos[i + 1] = tmp;
@@ -70,7 +66,7 @@ public class ReportService {
             }
         }
     }
-    // подсчет количества проданного
+
     private int getCount(StoreDto[] storeDtos) {
         int count = 0;
         for (StoreDto storeDto : storeDtos) {
@@ -79,7 +75,6 @@ public class ReportService {
         return count;
     }
 
-    // трансформация сторе в дто
     private StoreDto[] mapStores() {
         StoreDto[] array = new StoreDto[stores.length];
         for (int i = 0; i < array.length; i++) {
@@ -95,6 +90,5 @@ public class ReportService {
         }
         return array;
     }
-
 }
 

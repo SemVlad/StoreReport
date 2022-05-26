@@ -57,7 +57,7 @@ public class ReportView {
             }
 
             // вывод значения счетчика
-            int countChar = buyingDto.getName().length();// длинна слова
+            int countChar = buyingDto.getName().length();
             int indentCount = length - countChar;
 
             for (int i = 1; i <= indentCount; i++) {
